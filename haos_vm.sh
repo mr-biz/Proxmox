@@ -81,21 +81,22 @@ info "Container ID is $VMID."
 
 # Get latest Home Assistant disk image archive URL
 echo -e "\e[1;33m Getting URL for latest Home Assistant disk image... \e[0m"
-RELEASE_TYPE=vmdk
-URL=$(cat<<EOF | python3
-import requests
-url = "https://api.github.com/repos/home-assistant/operating-system/releases"
-r = requests.get(url).json()
-if "message" in r:
-    exit()
-for release in r:
-    if release["prerelease"]:
-        continue
-    for asset in release["assets"]:
-        if asset["name"].find("$RELEASE_TYPE") != -1:
-            image_url = asset["browser_download_url"]
-            print(image_url)
-            exit()
+wget https://github.com/home-assistant/operating-system/releases/download/6.2/haos_ova-6.2.qcow2.xz
+#RELEASE_TYPE=vmdk
+#URL=$(cat<<EOF | python3
+#import requests
+#url = "https://api.github.com/repos/home-assistant/operating-system/releases"
+#r = requests.get(url).json()
+#if "message" in r:
+#    exit()
+#for release in r:
+#    if release["prerelease"]:
+#        continue
+#    for asset in release["assets"]:
+#        if asset["name"].find("$RELEASE_TYPE") != -1:
+#            image_url = asset["browser_download_url"]
+#            print(image_url)
+#            exit()
 EOF
 )
 if [ -z "$URL" ]; then
