@@ -97,7 +97,7 @@ wget https://github.com/home-assistant/operating-system/releases/download/6.2/ha
 #            image_url = asset["browser_download_url"]
 #            print(image_url)
 #            exit()
-EOF
+#EOF
 )
 if [ -z "$URL" ]; then
   die "Github has returned an error. A rate limit may have been applied to your connection."
