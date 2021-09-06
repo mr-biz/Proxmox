@@ -99,9 +99,9 @@ wget https://github.com/home-assistant/operating-system/releases/download/6.2/ha
 #            exit()
 #EOF
 #)
-if [ -z "$URL" ]; then
-  die "Github has returned an error. A rate limit may have been applied to your connection."
-fi
+#if [ -z "$URL" ]; then
+#  die "Github has returned an error. A rate limit may have been applied to your connection."
+#fi
 
 # Download Home Assistant disk image archive
 echo -e "\e[1;33m Downloading disk image... \e[0m"
